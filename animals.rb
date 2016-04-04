@@ -52,14 +52,21 @@ class Bat < Mammal
 
 	def initialize
 	@has_wings = true
+	super
 	end
 end
 
 class Parrot < Bird
 	include Flight 
+	attr_reader :can_talk
+	def initialize 
+		@can_talk = true
+	super
+	end
 end 
 
 class Chimpanzee < Primate
+
 end
 
 # module Flight
@@ -78,8 +85,14 @@ end
 # primate = Primate.new 
 # froggy = Frog.new
 # puts froggy.cold_blooded,froggy.breathes_underwater
+chimpy = Chimpanzee.new
+puts "Chimpy's leg count: #{chimpy.num_legs}"
+
 batty = Bat.new 
 puts batty.fly
+puts "Batty is warm blooded: #{batty.warm_blooded}"
 
 polly = Parrot.new
 puts polly.fly
+puts "Why?... Because I have wings : #{polly.has_wings}"
+puts "I'm polly the prude parrot, no one likes me because I can talk: #{polly.can_talk}"
